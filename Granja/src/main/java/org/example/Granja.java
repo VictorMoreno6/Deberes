@@ -7,44 +7,43 @@ public class Granja {
         Scanner sc = new Scanner(System.in);
         System.out.println("Cuantos animales quieres que haya en la granja");
         int total= sc.nextInt();
-        sc.next();
+        Animal[] animales= new Animal[total];
         System.out.println("Cuantos quieres que sean gallinas");
         int galli=sc.nextInt();
-        int espacio=total-galli;
-        Gallina gallinas[]= new Gallina[galli];
         for (int i = 0; i < galli; i++) {
-            if (i>(galli/2)){
-                 gallinas[i].setNombre("Carlos");
+            if (i>=(galli/2)){
+                 animales[i] = new Gallina((int)(Math.random() * 10),"Carlos",Math.random() * 2);
             }
-            if (i<(galli/2)){
-                gallinas[i].setNombre("Rita");
+            else if (i<(galli/2)){
+                 animales[i] = new Gallina((int)(Math.random() * 10),"Rita",Math.random() * 2);
             }
         }
         System.out.println("¿Cuántas vacas quieres?");
         int vac=sc.nextInt();
-        espacio=total-vac;
-        Vaca vacas[]=new Vaca[vac];
-        for (int i = 0; i < vac; i++) {
-            if (i>(vac/2)){
-                vacas[i].setNombre("Lola");
+        for (int i = galli; i < vac+galli; i++) {
+            if ((Math.random() * 12)>=6){
+                animales[i] = new Vaca((int) (Math.random() * 20),"Lola",Math.random() * 8);
             }
-            if (i<(vac/2)){
-                vacas[i].setNombre("Manolita");
+            else if ((Math.random() * 12)<6){
+                animales[i] = new Vaca((int) (Math.random() * 20),"Manolita",Math.random() * 8);
             }
         }
-        Oveja ovejas[]=new Oveja[espacio];
-        for (int i = 0; i < vac; i++) {
-            if (i>(vac/2)){
-                vacas[i].setNombre("Dolly");
-                vacas[i].setEdad((int) (Math.random()*20+1));
+        for (int i = (vac+galli); i < total; i++) {
+            if ((Math.random() * 12)>=6){
+                animales[i] = new Oveja((int) (Math.random() * 12),"Dolly",Math.random() * 22);
             }
-            if (i<(vac/2)){
-                vacas[i].setNombre("Amancio");
-                vacas[i].setEdad((int) (Math.random()*10+2));
+            else if ((Math.random() * 12)<6){
+                animales[i] = new Oveja((int)(Math.random() * 12),"Amancio",Math.random() * 22);
             }
         }
-        for (int i = 0; i < total; i++) {
-            System.out.println(Animal.class);
+        for (int i = 0; i < animales.length; i++) {
+            System.out.println("-----");
+            System.out.println(animales[i]);
+            if (animales[i].isRentable()) {
+                System.out.println("Es rentable");
+            } else {
+                System.out.println("No es rentable");
+            }
         }
     }
 }
