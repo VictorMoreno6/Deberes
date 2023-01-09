@@ -12,7 +12,7 @@ public class Practica6 {
         System.out.println("Cuantas cuentas corrientes ahorro quieres hacer");
         int ahorro = sc.nextInt();
         CuentaCorriente cuentasco []= new CuentaCorriente[cuentas];
-        CuentaCorriente cuentasaho []= new CuentaAhorro[ahorro];
+        CuentaAhorro cuentasaho []= new CuentaAhorro[ahorro];
         for (int i = 0; i < cuentas; i++) {
             System.out.println("Introduce el titular de la cuenta(nombre, apellido y edad), el numero de cuenta y el saldo de esta");
             cuentasco [i]= new CuentaCorriente( new Titular(sc.next(),sc.next(),sc.nextInt()) ,sc.next(),sc.nextDouble());
@@ -22,7 +22,10 @@ public class Practica6 {
             cuentasaho [i]= new CuentaAhorro( new Titular(sc.next(),sc.next(),sc.nextInt()) ,sc.next(),sc.nextDouble(),sc.nextDouble());
         }
         for (int i = 0; i < cuentas; i++) {
-            System.out.println("Titular: " + cuentasco[i].getTitular()+ "Nº cuenta: " + cuentasco[i].getNumeroCuenta()+ "Saldo: " +cuentasco[i].getSaldo());
+            System.out.println("Titular: " + cuentasco[i].getTitular()+ " Nº cuenta: " + cuentasco[i].getNumeroCuenta()+ " Saldo: " +cuentasco[i].getSaldo());
+        }
+        for (int i = 0; i < ahorro; i++) {
+            System.out.println("Titular: " + cuentasaho[i].getTitular()+ " Nº cuenta: " + cuentasaho[i].getNumeroCuenta()+ " Saldo: " +cuentasaho[i].getSaldo() + " Interes: " + cuentasaho[i].getInteres());
         }
     }
 

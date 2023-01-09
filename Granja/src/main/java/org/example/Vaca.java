@@ -9,11 +9,11 @@ public class Vaca extends Animal {
         this.litros = litros;
     }
     public Vaca(){
-        super(6,"Paco");
+        super(6,"Paco","vaca"+(int)(Math.random()*2000));
         litros=Math.random()*7;
     }
-    public Vaca(int edad,String nombre,double litros){
-        super(edad, nombre);
+    public Vaca(int edad, String nombre, String id, double litros){
+        super(edad, nombre, id);
         this.litros=litros;
     }
 

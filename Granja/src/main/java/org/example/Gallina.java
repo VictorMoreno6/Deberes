@@ -12,14 +12,14 @@ public class Gallina extends Animal{
     }
 
     public Gallina(){
-        super(4,"Jose");
+        super(4,"Jose","gallina"+(int)(Math.random()*2000));
         huevosDia=Math.random()*2;
     }
 
 
 
-    public Gallina(int edad,String nombre,double huevosDia){
-        super(edad, nombre);
+    public Gallina(int edad,String nombre, String id,double huevosDia){
+        super(edad, nombre, id);
         this.huevosDia=huevosDia;
     }
 
